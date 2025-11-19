@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: expenso-frontend
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://your-backend-url.onrender.com/api

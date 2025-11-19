@@ -1,6 +1,9 @@
 import axios from 'axios'
 
-const API_BASE_URL = '/api'
+// API base URL - works for both development and production
+const API_BASE_URL = import.meta.env.PROD 
+  ? import.meta.env.VITE_API_URL || 'https://your-backend-url.onrender.com/api'  // Production: backend URL
+  : '/api'  // Development: proxy handles this
 
 const api = axios.create({
   baseURL: API_BASE_URL,
